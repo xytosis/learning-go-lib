@@ -2,7 +2,12 @@ package dao
 
 import "github.com/xytosis/learning-go-lib/db/entity"
 
-type BookDao struct {
+type BookDaoImpl struct {
+}
+
+type BookDao interface {
+	ListBooks() []entity.Book
+	DeleteBooks(id string) bool
 }
 
 var books = []entity.Book{
@@ -15,10 +20,10 @@ var books = []entity.Book{
 	},
 }
 
-func (b BookDao) ListBooks() []entity.Book {
+func (b BookDaoImpl) ListBooks() []entity.Book {
 	return books
 }
 
-func (b BookDao) DeleteBooks(id string) bool {
+func (b BookDaoImpl) DeleteBooks(id string) bool {
 	return true
 }

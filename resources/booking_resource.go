@@ -12,7 +12,7 @@ type BookingResource struct {
 
 type BookingResourceContext struct {
 	R              *chi.Mux
-	BookService    *services.BookingService
+	BookService    services.BookingService
 	BookServiceCtx *services.BookingServiceContext
 }
 

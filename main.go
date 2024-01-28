@@ -14,15 +14,15 @@ func main() {
 	r.Use(middleware.Logger)
 
 	// create daos
-	bookDao := dao.BookDao{}
+	bookDao := dao.BookDaoImpl{}
 
 	// create services
-	bookService := services.BookingService{}
+	bookService := services.BookingServiceImpl{}
 
 	// create contexts
-	bookServiceCtx := services.BookingServiceContext{&bookDao}
-	bookingResourceCtx := resources.BookingResourceContext{r, &bookService, &bookServiceCtx}
-	healthcheckResourceCtx := resources.HealthcheckResourceContext{r}
+	bookServiceCtx := services.BookingServiceContext{BookDao: &bookDao}
+	bookingResourceCtx := resources.BookingResourceContext{R: r, BookService: &bookService, BookServiceCtx: &bookServiceCtx}
+	healthcheckResourceCtx := resources.HealthcheckResourceContext{R: r}
 
 	// register resources
 	h := resources.HealthcheckResource{}

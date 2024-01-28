@@ -5,17 +5,22 @@ import (
 	"github.com/xytosis/learning-go-lib/db/entity"
 )
 
-type BookingService struct {
+type BookingServiceImpl struct {
+}
+
+type BookingService interface {
+	ListBooks(cxt *BookingServiceContext) []entity.Book
+	DeleteBook(ctx *BookingServiceContext, id string) bool
 }
 
 type BookingServiceContext struct {
-	BookDao *dao.BookDao
+	BookDao dao.BookDao
 }
 
-func (b BookingService) ListBooks(ctx *BookingServiceContext) []entity.Book {
+func (b BookingServiceImpl) ListBooks(ctx *BookingServiceContext) []entity.Book {
 	return ctx.BookDao.ListBooks()
 }
 
-func (b BookingService) DeleteBook(ctx *BookingServiceContext, id string) bool {
+func (b BookingServiceImpl) DeleteBook(ctx *BookingServiceContext, id string) bool {
 	return ctx.BookDao.DeleteBooks(id)
 }
