@@ -1,4 +1,4 @@
-package main
+package integration
 
 import (
 	"github.com/go-chi/chi/v5"
@@ -6,14 +6,7 @@ import (
 	"github.com/xytosis/learning-go-lib/db/dao"
 	"github.com/xytosis/learning-go-lib/resources"
 	"github.com/xytosis/learning-go-lib/services"
-	"net/http"
 )
-
-func main() {
-	r := setupServer()
-
-	http.ListenAndServe(":3000", r)
-}
 
 func setupServer() chi.Router {
 	r := chi.NewRouter()

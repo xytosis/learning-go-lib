@@ -1,4 +1,4 @@
-package tests
+package unit
 
 import (
 	"github.com/xytosis/learning-go-lib/db/entity"

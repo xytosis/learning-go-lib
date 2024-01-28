@@ -32,5 +32,11 @@ func (b BookingResource) listBookings(ctx BookingResourceContext) {
 }
 
 func (b BookingResource) deleteBooking(ctx BookingResourceContext) {
-
+	ctx.R.Get("/deleteBook", func(w http.ResponseWriter, req *http.Request) {
+		err := json.NewEncoder(w).Encode(ctx.BookService.DeleteBook(ctx.BookServiceCtx, ""))
+		if err != nil {
+			http.Error(w, "Internal error", http.StatusInternalServerError)
+			return
+		}
+	})
 }
