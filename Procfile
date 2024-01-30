@@ -1,1 +1,1 @@
-web: learning-go-lib
+web: ./bin/learning-go-lib
