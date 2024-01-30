@@ -7,12 +7,13 @@ import (
 	"github.com/xytosis/learning-go-lib/resources"
 	"github.com/xytosis/learning-go-lib/services"
 	"net/http"
+	"os"
 )
 
 func main() {
 	r := setupServer()
 
-	http.ListenAndServe(":80", r)
+	http.ListenAndServe(":"+os.Getenv("PORT"), r)
 }
 
 func setupServer() chi.Router {
