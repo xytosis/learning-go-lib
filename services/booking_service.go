@@ -18,7 +18,9 @@ type BookingServiceContext struct {
 }
 
 func (b BookingServiceImpl) ListBooks(ctx *BookingServiceContext) []entity.Book {
+	// complex business logic
 	return ctx.BookDao.ListBooks()
+	// complex business logic
 }
 
 func (b BookingServiceImpl) DeleteBook(ctx *BookingServiceContext, id string) bool {
