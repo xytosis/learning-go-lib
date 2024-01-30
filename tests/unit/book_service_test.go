@@ -10,7 +10,7 @@ type fakeDao struct {
 }
 
 func TestListBookImpl(t *testing.T) {
-	ctx := services.BookingServiceContext{fakeDao{}}
+	ctx := services.BookingServiceContext{BookDao: fakeDao{}}
 	bookService := services.BookingServiceImpl{}
 	books := bookService.ListBooks(&ctx)
 	if len(books) > 0 {

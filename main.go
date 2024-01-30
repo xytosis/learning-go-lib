@@ -12,7 +12,7 @@ import (
 func main() {
 	r := setupServer()
 
-	http.ListenAndServe(":3000", r)
+	http.ListenAndServe("", r)
 }
 
 func setupServer() chi.Router {
